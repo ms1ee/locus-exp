@@ -1,0 +1,9 @@
+array channels[4] : w32 -> w8 = symbolic
+array format[4] : w32 -> w8 = symbolic
+(query [(Eq 327680
+             (And w32 (ReadLSB w32 0 format)
+                      268369920))
+         (Or (Slt N0:(ReadLSB w32 0 channels)
+                  1)
+             (Slt 1024 N0))]
+        false)

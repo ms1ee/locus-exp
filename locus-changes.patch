@@ -1,0 +1,22 @@
+diff --git a/src/locus/agent.py b/src/locus/agent.py
+--- a/src/locus/agent.py
++++ b/src/locus/agent.py
+@@ -157,6 +157,7 @@ def create_agent(
+         system_prompt=system,
+         deps_type=AgentDeps,
+         output_type=str,
++        model_settings={"max_tokens": 16000},  # pydantic-ai default 4096 is too small once thinking is on
+     )
+ 
+     @agent.tool
+diff --git a/src/locus/harness.py b/src/locus/harness.py
+--- a/src/locus/harness.py
++++ b/src/locus/harness.py
+@@ -93,6 +93,7 @@ def create_harness_agent(
+         system_prompt=system,
+         deps_type=HarnessDeps,
+         output_type=str,
++        model_settings={"max_tokens": 16000},  # pydantic-ai default 4096 is too small once thinking is on
+     )
+ 
+     @agent.tool

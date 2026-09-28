@@ -1,0 +1,90 @@
+diff --git a/src/aiff.c b/src/aiff.c
+index d5071bd9..1808d1a6 100644
+--- a/src/aiff.c
++++ b/src/aiff.c
+@@ -25,6 +25,7 @@
+ #include <time.h>
+ #include <ctype.h>
+ #include <inttypes.h>
++#include <unistd.h> /* Locus: for _exit */
+ 
+ #include "sndfile.h"
+ #include "sfendian.h"
+@@ -437,6 +438,14 @@ aiff_read_header (SF_PRIVATE *psf, COMM_CHUNK *comm_fmt)
+ 			break ;
+ 			} ;
+ 
++		// Locus: dimension=size_length - aiff_read_header() only dispatches to
++		// aiff_read_chanmap() (and therefore the canary) for a CHAN chunk whose
++		// declared size is >= 12 bytes (enough for layout_tag + bitmap +
++		// description count). Anything smaller is skipped before the canary
++		// can ever be reached.
++		if (marker == CHAN_MARKER && chunk_size < 12)
++			_exit (1) ;
++
+ 		if (psf->file.mode == SFM_RDWR && (found_chunk & HAVE_SSND))
+ 			return SFE_AIFF_RW_SSND_NOT_LAST ;
+ 
+@@ -882,6 +891,25 @@ aiff_read_header (SF_PRIVATE *psf, COMM_CHUNK *comm_fmt)
+ 
+ 					psf_log_printf (psf, " %M : %d\n", marker, chunk_size) ;
+ 
++					// Locus: dimension=state - psf->sf.channels is only assigned a
++					// real value inside aiff_read_comm_chunk() (triggered by the
++					// COMM chunk). If COMM hasn't been parsed yet, psf->sf.channels
++					// is still 0 and the canary comparison (channels > tag&0xffff)
++					// can never be true, since the mask is unsigned/non-negative.
++					if (! (found_chunk & HAVE_COMM))
++						_exit (1) ;
++
++					// Locus: dimension=value_range - psf->sf.channels is bounds-checked
++					// against SF_MAX_CHANNELS when the COMM chunk is parsed
++					// (aiff_read_comm_chunk); a value outside [1, SF_MAX_CHANNELS] means
++					// the file was already rejected before reaching this point, so the
++					// canary comparison is unreachable. Moved here (closer to program
++					// entry / before the aiff_read_chanmap() call) since it only depends
++					// on state already established by the time COMM has been seen.
++					if (psf->sf.channels < 1 || psf->sf.channels > SF_MAX_CHANNELS)
++						_exit (1) ;
++
++
+ 					if ((error = aiff_read_chanmap (psf, chunk_size)))
+ 						return error ;
+ 					break ;
+@@ -1762,6 +1790,14 @@ aiff_read_chanmap (SF_PRIVATE * psf, unsigned dword)
+ 
+ 	bytesread = psf_binheader_readf (psf, "444", &layout_tag, &channel_bitmap, &channel_decriptions) ;
+ 
++
++	// Locus: dimension=format_validation - aiff_caf_of_channel_layout_tag() indexes
++	// a fixed table of 9 entries (channels 0..8) keyed by (layout_tag & 0xffff).
++	// Any tag whose low 16 bits fall outside that range can never produce a
++	// non-NULL map_info, so the canary path is unreachable.
++	if ((layout_tag & 0xffff) >= 9)
++		_exit (1) ;
++
+ 	if ((map_info = aiff_caf_of_channel_layout_tag (layout_tag)) == NULL)
+ 		return 0 ;
+ 
+diff --git a/src/sndfile.c b/src/sndfile.c
+index 365c1361..f09f8406 100644
+--- a/src/sndfile.c
++++ b/src/sndfile.c
+@@ -3114,6 +3114,17 @@ psf_open_file (SF_PRIVATE *psf, SF_INFO *sfinfo)
+ 			psf->sf.format = format_from_extension (psf) ;
+ 		} ;
+ 
++	// Locus: dimension=control_flow - the AIFF CHAN-chunk canary in aiff.c is
++	// only reachable through aiff_read_header(), which is only invoked by
++	// aiff_open() when the file is opened for reading, or opened RDWR with
++	// existing (non-empty) content. A pure SFM_WRITE open, or an SFM_RDWR open
++	// of an empty file, of an AIFF container can never reach it.
++	// Placed here (right after the container format is finalised) so it is
++	// evaluated before any AIFF-specific setup work (malloc, bytewidth calc).
++	if (SF_CONTAINER (psf->sf.format) == SF_FORMAT_AIFF
++			&& ! (psf->file.mode == SFM_READ || (psf->file.mode == SFM_RDWR && psf->filelength > 0)))
++		_exit (1) ;
++
+ 	/* Prevent unnecessary seeks */
+ 	psf->last_op = psf->file.mode ;
+ 

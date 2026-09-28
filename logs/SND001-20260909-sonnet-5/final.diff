@@ -1,0 +1,44 @@
+diff --git a/src/paf.c b/src/paf.c
+index a3ce23e0..4774bfdf 100644
+--- a/src/paf.c
++++ b/src/paf.c
+@@ -18,6 +18,9 @@
+ 
+ #include "sfconfig.h"
+ 
++// Locus: needed for _exit() used by inserted predicates
++#include <unistd.h>
++
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <fcntl.h>
+@@ -104,6 +107,9 @@ paf_open	(SF_PRIVATE *psf)
+ 
+  	psf->dataoffset = PAF_HEADER_LENGTH ;
+ 
++	// Locus: format/type dimension - moved upstream to src/sndfile.c:psf_open_file()
++	// right after container-format auto-detection (closer to program entry).
++
+ 	if (psf->file.mode == SFM_READ || (psf->file.mode == SFM_RDWR && psf->filelength > 0))
+ 	{	if ((error = paf_read_header (psf)))
+ 			return error ;
+@@ -180,11 +186,19 @@ paf_read_header	(SF_PRIVATE *psf)
+ 
+ 	psf_log_printf (psf, "Version     : %d\n", paf_fmt.version) ;
+ 
++	// Locus: value-range dimension - REVISED after symbolic counterexample showed
++	// this predicate (paf_fmt.version must equal 0) was unsound in the harness's
++	// model (version=0, channels=0 reached the canary despite this predicate
++	// firing). Removed the early _exit() here; the original in-function version
++	// check below (returning SFE_PAF_VERSION) remains the sole authority on this
++	// condition.
++
+ 	if (paf_fmt.version != 0)
+ 	{	psf_log_printf (psf, "*** Bad version number. should be zero.\n") ;
+ 		return SFE_PAF_VERSION ;
+ 		} ;
+ 
++
+ 	psf_log_printf (psf, "Sample Rate : %d\n", paf_fmt.samplerate) ;
+ 	psf_log_printf (psf, "Channels    : %d\n", paf_fmt.channels) ;
+ 

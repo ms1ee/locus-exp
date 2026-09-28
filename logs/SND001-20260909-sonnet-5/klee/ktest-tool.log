@@ -1,0 +1,179 @@
+# 2026-09-09_14:44:58 ktest-tool /home/ms1ee/islab/locus-exp/snd/__locus_klee_out_size/test000002.ktest
+ktest file : '/home/ms1ee/islab/locus-exp/snd/__locus_klee_out_size/test000002.ktest'
+args       : ['/home/ms1ee/islab/locus-exp/snd/__locus_all.bc']
+num objects: 3
+object 0: name: 'mode'
+object 0: size: 4
+object 0: data: b'0\x00\x00\x00'
+object 0: hex : 0x30000000
+object 0: int : 48
+object 0: uint: 48
+object 0: text: 0...
+object 1: name: 'filelength'
+object 1: size: 8
+object 1: data: b'\x01\x00\x00\x00\x00\x00\x00\x00'
+object 1: hex : 0x0100000000000000
+object 1: int : 1
+object 1: uint: 1
+object 1: text: ........
+object 2: name: 'channels'
+object 2: size: 4
+object 2: data: b'\x00\x00\x00\x00'
+object 2: hex : 0x00000000
+object 2: int : 0
+object 2: uint: 0
+object 2: text: ....
+# 2026-09-09_14:47:02 ktest-tool /home/ms1ee/islab/locus-exp/snd/__locus_klee_out_dim_2/test000002.ktest
+ktest file : '/home/ms1ee/islab/locus-exp/snd/__locus_klee_out_dim_2/test000002.ktest'
+args       : ['/home/ms1ee/islab/locus-exp/snd/__locus_all.bc']
+num objects: 3
+object 0: name: 'file_mode'
+object 0: size: 4
+object 0: data: b' \x00\x00\x00'
+object 0: hex : 0x20000000
+object 0: int : 32
+object 0: uint: 32
+object 0: text:  ...
+object 1: name: 'filelength'
+object 1: size: 8
+object 1: data: b'\x00\x00\x00\x00\x00\x00\x00\x00'
+object 1: hex : 0x0000000000000000
+object 1: int : 0
+object 1: uint: 0
+object 1: text: ........
+object 2: name: 'channels'
+object 2: size: 4
+object 2: data: b'\x00\x00\x00\x00'
+object 2: hex : 0x00000000
+object 2: int : 0
+object 2: uint: 0
+object 2: text: ....
+# 2026-09-09_14:50:10 ktest-tool /home/ms1ee/islab/locus-exp/snd/__locus_klee_out_control_flow/test000003.ktest
+ktest file : '/home/ms1ee/islab/locus-exp/snd/__locus_klee_out_control_flow/test000003.ktest'
+args       : ['/home/ms1ee/islab/locus-exp/snd/__locus_all.bc']
+num objects: 5
+object 0: name: 'mode'
+object 0: size: 4
+object 0: data: b'\x10\x00\x00\x00'
+object 0: hex : 0x10000000
+object 0: int : 16
+object 0: uint: 16
+object 0: text: ....
+object 1: name: 'filelength'
+object 1: size: 8
+object 1: data: b'\xff\xff\xff\xff\xff\xff\xff\x7f'
+object 1: hex : 0xffffffffffffff7f
+object 1: int : 9223372036854775807
+object 1: uint: 9223372036854775807
+object 1: text: ........
+object 2: name: 'marker'
+object 2: size: 4
+object 2: data: b'\x01\x00\x00\x00'
+object 2: hex : 0x01000000
+object 2: int : 1
+object 2: uint: 1
+object 2: text: ....
+object 3: name: 'version'
+object 3: size: 4
+object 3: data: b'\x00\x00\x00\x00'
+object 3: hex : 0x00000000
+object 3: int : 0
+object 3: uint: 0
+object 3: text: ....
+object 4: name: 'channels'
+object 4: size: 4
+object 4: data: b'\x00\x00\x00\x00'
+object 4: hex : 0x00000000
+object 4: int : 0
+object 4: uint: 0
+object 4: text: ....
+# 2026-09-09_14:51:04 ktest-tool /home/ms1ee/islab/locus-exp/snd/__locus_klee_out_format/test000002.ktest
+ktest file : '/home/ms1ee/islab/locus-exp/snd/__locus_klee_out_format/test000002.ktest'
+args       : ['/home/ms1ee/islab/locus-exp/snd/__locus_all.bc']
+num objects: 2
+object 0: name: 'marker'
+object 0: size: 4
+object 0: data: b'\x01\x00\x00\x00'
+object 0: hex : 0x01000000
+object 0: int : 1
+object 0: uint: 1
+object 0: text: ....
+object 1: name: 'channels'
+object 1: size: 4
+object 1: data: b'\x00\x00\x00\x00'
+object 1: hex : 0x00000000
+object 1: int : 0
+object 1: uint: 0
+object 1: text: ....
+# 2026-09-09_14:52:46 ktest-tool /home/ms1ee/islab/locus-exp/snd/__locus_klee_out_format_magic/test000002.ktest
+ktest file : '/home/ms1ee/islab/locus-exp/snd/__locus_klee_out_format_magic/test000002.ktest'
+args       : ['/home/ms1ee/islab/locus-exp/snd/__locus_all.bc']
+num objects: 2
+object 0: name: 'marker'
+object 0: size: 4
+object 0: data: b'\x00\x00\x00\x00'
+object 0: hex : 0x00000000
+object 0: int : 0
+object 0: uint: 0
+object 0: text: ....
+object 1: name: 'channels'
+object 1: size: 4
+object 1: data: b'\x00\x00\x00\x00'
+object 1: hex : 0x00000000
+object 1: int : 0
+object 1: uint: 0
+object 1: text: ....
+# 2026-09-09_14:53:25 ktest-tool /home/ms1ee/islab/locus-exp/snd/__locus_klee_out_value_range/test000001.ktest
+ktest file : '/home/ms1ee/islab/locus-exp/snd/__locus_klee_out_value_range/test000001.ktest'
+args       : ['/home/ms1ee/islab/locus-exp/snd/__locus_all.bc']
+num objects: 2
+object 0: name: 'version'
+object 0: size: 4
+object 0: data: b'\x00\x00\x00\x00'
+object 0: hex : 0x00000000
+object 0: int : 0
+object 0: uint: 0
+object 0: text: ....
+object 1: name: 'channels'
+object 1: size: 4
+object 1: data: b'\x00\x00\x00\x00'
+object 1: hex : 0x00000000
+object 1: int : 0
+object 1: uint: 0
+object 1: text: ....
+# 2026-09-09_14:55:55 ktest-tool /home/ms1ee/islab/locus-exp/snd/__locus_klee_out_format/test000001.ktest
+ktest file : '/home/ms1ee/islab/locus-exp/snd/__locus_klee_out_format/test000001.ktest'
+args       : ['/home/ms1ee/islab/locus-exp/snd/__locus_all.bc']
+num objects: 2
+object 0: name: 'format'
+object 0: size: 4
+object 0: data: b'\x00\x00\x05\x00'
+object 0: hex : 0x00000500
+object 0: int : 327680
+object 0: uint: 327680
+object 0: text: ....
+object 1: name: 'channels'
+object 1: size: 4
+object 1: data: b'\x00\x00\x00\x00'
+object 1: hex : 0x00000000
+object 1: int : 0
+object 1: uint: 0
+object 1: text: ....
+# 2026-09-09_15:01:27 ktest-tool /home/ms1ee/islab/locus-exp/snd/__locus_klee_out_format_type/test000001.ktest
+ktest file : '/home/ms1ee/islab/locus-exp/snd/__locus_klee_out_format_type/test000001.ktest'
+args       : ['/home/ms1ee/islab/locus-exp/snd/__locus_all.bc']
+num objects: 2
+object 0: name: 'sf_format'
+object 0: size: 4
+object 0: data: b'\x00\x00\x05\x00'
+object 0: hex : 0x00000500
+object 0: int : 327680
+object 0: uint: 327680
+object 0: text: ....
+object 1: name: 'channels'
+object 1: size: 4
+object 1: data: b'\x00\x00\x00\x00'
+object 1: hex : 0x00000000
+object 1: int : 0
+object 1: uint: 0
+object 1: text: ....

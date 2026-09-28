@@ -1,0 +1,7 @@
+Error: Wrong size given to klee_make_symbolic
+File: __locus_harness_value_range.c
+Line: 18
+assembly.ll line: 169204
+State: 1
+Stack: 
+	#000169204 in __locus_klee_harness_value_range() at __locus_harness_value_range.c:18

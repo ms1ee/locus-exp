@@ -1,0 +1,22 @@
+Found canary at /tmp/locus-SND001/repo/src/paf.c:206
+Condition: MAGMA_OR(paf_fmt.channels < 1, paf_fmt.channels > SF_MAX_CHANNELS)
+
+--- Iteration 1/5 ---
+  Agent wants to stop, but min_iterations=3 not reached (iteration 1). Continuing...
+
+--- Iteration 2/5 ---
+  Agent wants to stop, but min_iterations=3 not reached (iteration 2). Continuing...
+
+--- Iteration 3/5 ---
+
+Agent stopped after 3 iteration(s).
+
+--- Locus finished (agent's last report; predicates reverted above are no longer in the tree) ---
+All four dimensions have now been identified, predicates inserted, and placement optimized as far as soundly possible:
+
+1. **size_length** (buffer size dimension) — moved to `src/sndfile.c:3124`, right after container format resolution (as far upstream toward program entry as is sound, since `psf->filelength` and the PAF container determination are the earliest points both are known).
+2. **format_type_validation** (marker dimension) — `src/paf.c:183`, at the earliest point the marker value is parsed from the file; cannot be soundly moved upstream into the generic `guess_file_type`/`psf_open_file` machinery without duplicating raw-byte parsing logic in a format-agnostic function (would risk unsound pruning for the explicit-format-specified path).
+3. **value_range** (version field dimension) — `src/paf.c:194`, at the earliest point `paf_fmt.version` is known (parsed from file); no earlier location exists since nothing upstream has access to this value.
+4. **control_flow** (file mode dimension) — moved to `src/sndfile.c:3123`, alongside the size predicate, right after the container format is resolved to `SF_FORMAT_PAF` — the earliest point at which both the mode/filelength state and format identity are simultaneously known.
+
+All edits build successfully, use `__locus_`-free but properly `// Locus:`-commented `_exit(1)` guards, and `<unistd.h>` is included where needed.

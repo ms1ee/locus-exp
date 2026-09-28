@@ -1,0 +1,7 @@
+Error: invalid klee_assume call (provably false)
+File: __locus_harness_size.c
+Line: 64
+assembly.ll line: 169311
+State: 4
+Stack: 
+	#000169311 in __locus_klee_harness_size() at __locus_harness_size.c:64

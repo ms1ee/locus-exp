@@ -1,0 +1,16 @@
+# fuzzing workdir: captainrc + campaign results
+workdir/
+output/
+
+# Locus is its own git repo (upstream cirrus-uchicago/Locus); our diff lives in locus-changes.patch
+locus/
+
+# large, regenerable run artifacts
+logs/**/*.bc
+logs/**/assembly.ll
+
+# python
+__pycache__/
+*.py[oc]
+.venv/
+logs/**/run.istats

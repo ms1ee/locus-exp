@@ -1,0 +1,8 @@
+array filelength[8] : w32 -> w8 = symbolic
+array mode[4] : w32 -> w8 = symbolic
+(query [(Eq 48
+             (ReadLSB w32 0 mode))
+         (Eq false
+             (Slt 0
+                  (ReadLSB w64 0 filelength)))]
+        false)

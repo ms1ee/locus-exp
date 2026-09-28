@@ -1,0 +1,207 @@
+# 2026-09-09_15:01:24 klee --entry-point=__locus_klee_harness_format_type --max-time=30 --output-dir=/home/ms1ee/islab/locus-exp/snd/__locus_klee_out_format_type /home/ms1ee/islab/locus-exp/snd/__locus_all.bc
+KLEE: NOTE: Using klee-uclibc : /tmp/klee_build130stp_z3/runtime/lib/klee-uclibc.bca
+KLEE: output directory is "/home/ms1ee/islab/locus-exp/snd/__locus_klee_out_format_type"
+KLEE: Using STP solver backend
+KLEE: SAT solver: MiniSat
+KLEE: Deterministic allocator: Using quarantine queue size 8
+KLEE: Deterministic allocator: globals (start-address=0x7b77af000000 size=10 GiB)
+KLEE: Deterministic allocator: constants (start-address=0x7b752f000000 size=10 GiB)
+KLEE: Deterministic allocator: heap (start-address=0x7a752f000000 size=1024 GiB)
+KLEE: Deterministic allocator: stack (start-address=0x7a552f000000 size=128 GiB)
+warning: Linking two modules of different target triples: '__ctype_b_loc.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'tolower.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '__errno_location.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'gmtime_r.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_stdio.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'fclose.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'fopen.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'fprintf.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'fread_unlocked.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'fseeko.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'fwrite_unlocked.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'puts.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'remove.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'snprintf.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'vsnprintf.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'abs.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'getenv.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'strtol.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'memcmp.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'strcmp.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'strerror.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'strlen.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'strncat.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'strncpy.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'strnlen.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'strrchr.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'strstr.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '__ctype_tolower_loc.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '__uClibc_main.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'errno.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_locale_init.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_time_t2tm.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_READ.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_fopen.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_fwrite.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_trans2r.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_trans2w.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_wcommit.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'fflush_unlocked.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'fputc_unlocked.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'fputs_unlocked.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'fseeko64.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'vfprintf.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_stdlib_strto_l.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '__xpg_strerror_r.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'memcpy.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'isatty.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'locale_data.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '__C_ctype_b.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '__C_ctype_tolower.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '__C_ctype_toupper.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '__h_errno_location.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '__locale_mbrtowc_l.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'wcrtomb.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'wcsrtombs.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_WRITE.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_adjust_pos.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_cs_funcs.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_fpmaxtostr.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_load_inttype.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_ppfs_init.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_ppfs_parsespec.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_ppfs_prepargs.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_ppfs_setargs.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_store_inttype.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_uintmaxtostr.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_stdlib_strto_l_l.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'abort.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'exit.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_string_syserrmsgs.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'memchr.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'memrchr.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'memset.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'tcgetattr.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_wchar_utf8sntowcs.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'mbsrtowcs.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'wcsnrtombs.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'raise.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'sigaction.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'sigsetops.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'mempcpy.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: '_wchar_wcsntoutf8s.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+warning: Linking two modules of different target triples: 'mbsnrtowcs.os' is 'x86_64-pc-linux-gnu' whereas '/home/ms1ee/islab/locus-exp/snd/__locus_all.bc' is 'x86_64-unknown-linux-gnu'
+
+KLEE: WARNING ONCE: unsupported intrinsic llvm.x86.sse2.cvtsd2si
+KLEE: WARNING ONCE: unsupported intrinsic llvm.x86.sse.cvtss2si
+KLEE: WARNING: undefined reference to function: __isoc99_sscanf
+KLEE: WARNING: undefined reference to function: __syscall_rt_sigaction
+KLEE: WARNING: undefined reference to function: access
+KLEE: WARNING: undefined reference to function: close
+KLEE: WARNING: undefined reference to function: fcntl
+KLEE: WARNING: undefined reference to function: floor
+KLEE: WARNING: undefined reference to function: fmod
+KLEE: WARNING: undefined reference to function: fstat
+KLEE: WARNING: undefined reference to function: fsync
+KLEE: WARNING: undefined reference to function: ftruncate
+KLEE: WARNING: undefined reference to function: ioctl
+KLEE: WARNING: undefined reference to function: lseek
+KLEE: WARNING: undefined reference to function: lseek64
+KLEE: WARNING: undefined reference to function: open
+KLEE: WARNING: undefined reference to function: pow
+KLEE: WARNING: undefined reference to function: read
+KLEE: WARNING: undefined reference to function: rmdir
+KLEE: WARNING: undefined reference to function: stat
+KLEE: WARNING: undefined reference to function: time
+KLEE: WARNING: undefined reference to function: unlink
+KLEE: WARNING: undefined reference to function: write
+KLEE: WARNING: undefined reference to function: kill (UNSAFE)!
+KLEE: ERROR: __locus_harness_format_type.c:68: ASSERTION FAIL: !(channels < 1 || channels > SF_MAX_CHANNELS)
+KLEE: NOTE: now ignoring this error at this location
+
+KLEE: done: total instructions = 23
+KLEE: done: completed paths = 1
+KLEE: done: partially completed paths = 1
+KLEE: done: generated tests = 2

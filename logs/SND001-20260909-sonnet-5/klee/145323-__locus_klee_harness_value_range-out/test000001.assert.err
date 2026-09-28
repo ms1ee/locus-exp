@@ -1,0 +1,7 @@
+Error: ASSERTION FAIL: !(channels < 1 || channels > SF_MAX_CHANNELS)
+File: __locus_harness_value_range.c
+Line: 17
+assembly.ll line: 169232
+State: 1
+Stack: 
+	#000169232 in __locus_klee_harness_value_range() at __locus_harness_value_range.c:17

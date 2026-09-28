@@ -1,0 +1,8 @@
+date=2026-09-09_14:34:29
+model=anthropic:claude-sonnet-5
+klee=on
+args=--repo snd --binary-build "make -C build -j$(nproc)" --model anthropic:claude-sonnet-5 --min-iterations 1 --max-iterations 3 --bitcode-build klee-docker/bitcode-build-snd.sh
+snd=7ae95e8a
+locus=69201b3 dirty=3 (max_tokens patch only; history dump and revert logging came later)
+exit=0
+note=written by hand: this run predates meta.txt/history/final.diff in run-snd001.sh. Artifacts were captured in logs/runs/adhoc/ and moved here. harness/143824-__locus_harness_dim_1.c (first validation) has no klee/ output because the klee wrapper did not save output dirs yet. final.diff was taken from the untouched snd/ tree after the run.

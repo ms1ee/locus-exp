@@ -1,0 +1,11 @@
+array channels[4] : w32 -> w8 = symbolic
+array marker[4] : w32 -> w8 = symbolic
+(query [(Eq false
+             (And (Eq false
+                      (Eq 1
+                          N0:(ReadLSB w32 0 marker)))
+                  (Eq false (Eq 2 N0))))
+         (Or (Slt N1:(ReadLSB w32 0 channels)
+                  1)
+             (Slt 1024 N1))]
+        false)

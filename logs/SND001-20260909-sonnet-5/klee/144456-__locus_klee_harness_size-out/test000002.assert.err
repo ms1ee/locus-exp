@@ -1,0 +1,7 @@
+Error: ASSERTION FAIL: !(canary_condition)
+File: __locus_harness_size.c
+Line: 73
+assembly.ll line: 169325
+State: 2
+Stack: 
+	#000169325 in __locus_klee_harness_size() at __locus_harness_size.c:73

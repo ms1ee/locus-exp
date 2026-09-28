@@ -1,0 +1,90 @@
+# 2026-09-09_14:44:55 bitcode build
+Writing output to build-bc/libsndfile.bc
+__locus_harness_size.c:73:5: warning: implicit declaration of function '__assert_fail' is invalid in C99 [-Wimplicit-function-declaration]
+    klee_assert(!(canary_condition));
+    ^
+/home/klee/klee_src/include/klee/klee.h:96:6: note: expanded from macro 'klee_assert'
+   : __assert_fail (#expr, __FILE__, __LINE__, __PRETTY_FUNCTION__))    \
+     ^
+1 warning generated.
+bitcode: __locus_all.bc
+# 2026-09-09_14:46:58 bitcode build
+Writing output to build-bc/libsndfile.bc
+__locus_harness_dim_2.c:54:5: warning: implicit declaration of function '__assert_fail' is invalid in C99 [-Wimplicit-function-declaration]
+    klee_assert(!(channels < 1 || channels > SF_MAX_CHANNELS));
+    ^
+/home/klee/klee_src/include/klee/klee.h:96:6: note: expanded from macro 'klee_assert'
+   : __assert_fail (#expr, __FILE__, __LINE__, __PRETTY_FUNCTION__))    \
+     ^
+1 warning generated.
+bitcode: __locus_all.bc
+# 2026-09-09_14:50:07 bitcode build
+Writing output to build-bc/libsndfile.bc
+__locus_harness_control_flow.c:72:5: warning: implicit declaration of function '__assert_fail' is invalid in C99 [-Wimplicit-function-declaration]
+    klee_assert(!(channels < 1 || channels > SF_MAX_CHANNELS));
+    ^
+/home/klee/klee_src/include/klee/klee.h:96:6: note: expanded from macro 'klee_assert'
+   : __assert_fail (#expr, __FILE__, __LINE__, __PRETTY_FUNCTION__))    \
+     ^
+1 warning generated.
+bitcode: __locus_all.bc
+# 2026-09-09_14:51:01 bitcode build
+Writing output to build-bc/libsndfile.bc
+__locus_harness_format.c:24:5: warning: implicit declaration of function '__assert_fail' is invalid in C99 [-Wimplicit-function-declaration]
+    klee_assert(!(channels < 1 || channels > SF_MAX_CHANNELS));
+    ^
+/home/klee/klee_src/include/klee/klee.h:96:6: note: expanded from macro 'klee_assert'
+   : __assert_fail (#expr, __FILE__, __LINE__, __PRETTY_FUNCTION__))    \
+     ^
+1 warning generated.
+bitcode: __locus_all.bc
+# 2026-09-09_14:52:43 bitcode build
+Writing output to build-bc/libsndfile.bc
+__locus_harness_format_magic.c:49:2: warning: implicit declaration of function '__assert_fail' is invalid in C99 [-Wimplicit-function-declaration]
+        klee_assert(!(channels < 1 || channels > SF_MAX_CHANNELS));
+        ^
+/home/klee/klee_src/include/klee/klee.h:96:6: note: expanded from macro 'klee_assert'
+   : __assert_fail (#expr, __FILE__, __LINE__, __PRETTY_FUNCTION__))    \
+     ^
+1 warning generated.
+bitcode: __locus_all.bc
+# 2026-09-09_14:53:22 bitcode build
+Writing output to build-bc/libsndfile.bc
+__locus_harness_value_range.c:17:5: warning: implicit declaration of function '__assert_fail' is invalid in C99 [-Wimplicit-function-declaration]
+    klee_assert(!(channels < 1 || channels > SF_MAX_CHANNELS));
+    ^
+/home/klee/klee_src/include/klee/klee.h:96:6: note: expanded from macro 'klee_assert'
+   : __assert_fail (#expr, __FILE__, __LINE__, __PRETTY_FUNCTION__))    \
+     ^
+1 warning generated.
+bitcode: __locus_all.bc
+# 2026-09-09_14:54:54 bitcode build
+Writing output to build-bc/libsndfile.bc
+__locus_harness_value_range.c:31:2: warning: implicit declaration of function '__assert_fail' is invalid in C99 [-Wimplicit-function-declaration]
+        klee_assert(!(paf_fmt.channels < 1 || paf_fmt.channels > SF_MAX_CHANNELS));
+        ^
+/home/klee/klee_src/include/klee/klee.h:96:6: note: expanded from macro 'klee_assert'
+   : __assert_fail (#expr, __FILE__, __LINE__, __PRETTY_FUNCTION__))    \
+     ^
+1 warning generated.
+bitcode: __locus_all.bc
+# 2026-09-09_14:55:53 bitcode build
+Writing output to build-bc/libsndfile.bc
+__locus_harness_format.c:63:5: warning: implicit declaration of function '__assert_fail' is invalid in C99 [-Wimplicit-function-declaration]
+    klee_assert(!(channels < 1 || channels > SF_MAX_CHANNELS));
+    ^
+/home/klee/klee_src/include/klee/klee.h:96:6: note: expanded from macro 'klee_assert'
+   : __assert_fail (#expr, __FILE__, __LINE__, __PRETTY_FUNCTION__))    \
+     ^
+1 warning generated.
+bitcode: __locus_all.bc
+# 2026-09-09_15:01:23 bitcode build
+Writing output to build-bc/libsndfile.bc
+__locus_harness_format_type.c:68:5: warning: implicit declaration of function '__assert_fail' is invalid in C99 [-Wimplicit-function-declaration]
+    klee_assert(!(channels < 1 || channels > SF_MAX_CHANNELS));
+    ^
+/home/klee/klee_src/include/klee/klee.h:96:6: note: expanded from macro 'klee_assert'
+   : __assert_fail (#expr, __FILE__, __LINE__, __PRETTY_FUNCTION__))    \
+     ^
+1 warning generated.
+bitcode: __locus_all.bc

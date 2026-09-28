@@ -1,0 +1,20 @@
+array channels[4] : w32 -> w8 = symbolic
+array filelength[8] : w32 -> w8 = symbolic
+array marker[4] : w32 -> w8 = symbolic
+array mode[4] : w32 -> w8 = symbolic
+array version[4] : w32 -> w8 = symbolic
+(query [(Eq 16
+             (ReadLSB w32 0 mode))
+         (Sle 2048
+              (ReadLSB w64 0 filelength))
+         (Eq false
+             (And (Eq false
+                      (Eq 1
+                          N0:(ReadLSB w32 0 marker)))
+                  (Eq false (Eq 2 N0))))
+         (Eq 0
+             (ReadLSB w32 0 version))
+         (Or (Slt N1:(ReadLSB w32 0 channels)
+                  1)
+             (Slt 1024 N1))]
+        false)

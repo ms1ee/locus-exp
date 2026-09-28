@@ -1,0 +1,24 @@
+KLEE: WARNING ONCE: unsupported intrinsic llvm.x86.sse2.cvtsd2si
+KLEE: WARNING ONCE: unsupported intrinsic llvm.x86.sse.cvtss2si
+KLEE: WARNING: undefined reference to function: __isoc99_sscanf
+KLEE: WARNING: undefined reference to function: __syscall_rt_sigaction
+KLEE: WARNING: undefined reference to function: access
+KLEE: WARNING: undefined reference to function: close
+KLEE: WARNING: undefined reference to function: fcntl
+KLEE: WARNING: undefined reference to function: floor
+KLEE: WARNING: undefined reference to function: fmod
+KLEE: WARNING: undefined reference to function: fstat
+KLEE: WARNING: undefined reference to function: fsync
+KLEE: WARNING: undefined reference to function: ftruncate
+KLEE: WARNING: undefined reference to function: ioctl
+KLEE: WARNING: undefined reference to function: lseek
+KLEE: WARNING: undefined reference to function: lseek64
+KLEE: WARNING: undefined reference to function: open
+KLEE: WARNING: undefined reference to function: pow
+KLEE: WARNING: undefined reference to function: read
+KLEE: WARNING: undefined reference to function: rmdir
+KLEE: WARNING: undefined reference to function: stat
+KLEE: WARNING: undefined reference to function: time
+KLEE: WARNING: undefined reference to function: unlink
+KLEE: WARNING: undefined reference to function: write
+KLEE: WARNING: undefined reference to function: kill (UNSAFE)!

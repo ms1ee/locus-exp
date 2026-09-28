@@ -1,0 +1,7 @@
+Error: invalid klee_assume call (provably false)
+File: __locus_harness_control_flow.c
+Line: 50
+assembly.ll line: 169309
+State: 3
+Stack: 
+	#000169309 in __locus_klee_harness_control_flow() at __locus_harness_control_flow.c:50

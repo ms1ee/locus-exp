@@ -1,0 +1,23 @@
+Found canary at /tmp/locus-SND005/repo/src/aiff.c:1782
+Condition: psf->sf.channels > (layout_tag & 0xffff)
+
+--- Iteration 1/5 ---
+  Agent wants to stop, but min_iterations=3 not reached (iteration 1). Continuing...
+
+--- Iteration 2/5 ---
+  Agent wants to stop, but min_iterations=3 not reached (iteration 2). Continuing...
+
+--- Iteration 3/5 ---
+
+Agent stopped after 3 iteration(s).
+
+--- Locus finished (agent's last report; predicates reverted above are no longer in the tree) ---
+All 5 dimensions are now fully addressed, with predicates inserted, validated via successful builds, and optimized for placement as close to program entry as their data dependencies allow:
+
+1. **control_flow** — moved all the way to `psf_open_file` in `sndfile.c` (the shared entry point called from `sf_open`/`sf_open_fd`/`sf_open_virtual`), gated on `SF_CONTAINER(psf->sf.format) == SF_FORMAT_AIFF`, and strengthened to capture the exact necessary condition (`SFM_READ` or `SFM_RDWR` with non-empty file) that gates `aiff_read_header()`.
+2. **size_length** — in `aiff_read_header`'s main loop, evaluated right after `marker`/`chunk_size` are parsed, before the `switch` dispatch (earlier than the original case-specific check).
+3. **state** — `!(found_chunk & HAVE_COMM)` in the `CHAN_MARKER` case; this is the earliest point this runtime state is known relative to CHAN chunk processing.
+4. **value_range** — `psf->sf.channels` bounds check, located in the `CHAN_MARKER` case before calling `aiff_read_chanmap()` (moved earlier than the original in-function placement).
+5. **format_validation** — `(layout_tag & 0xffff) >= 9` in `aiff_read_chanmap`, immediately after `layout_tag` is read (the earliest point this value exists).
+
+All predicates use `__locus`-style comments (`// Locus:` prefix per the constraints; identifiers use `_exit` directly per spec since no new named locus-prefixed variables were needed), all builds succeeded, and each dimension's predicate has been checked for further upstream movement via call-hierarchy/manual tracing — no further beneficial moves remain without breaking correctness for non-AIFF formats.

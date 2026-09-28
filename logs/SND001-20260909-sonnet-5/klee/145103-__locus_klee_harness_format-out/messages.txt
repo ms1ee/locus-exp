@@ -1,0 +1,9 @@
+KLEE: Using STP solver backend
+KLEE: SAT solver: MiniSat
+KLEE: Deterministic allocator: Using quarantine queue size 8
+KLEE: Deterministic allocator: globals (start-address=0x7a3da4c00000 size=10 GiB)
+KLEE: Deterministic allocator: constants (start-address=0x7a3b24c00000 size=10 GiB)
+KLEE: Deterministic allocator: heap (start-address=0x793b24c00000 size=1024 GiB)
+KLEE: Deterministic allocator: stack (start-address=0x791b24c00000 size=128 GiB)
+KLEE: ERROR: __locus_harness_format.c:24: ASSERTION FAIL: !(channels < 1 || channels > SF_MAX_CHANNELS)
+KLEE: NOTE: now ignoring this error at this location

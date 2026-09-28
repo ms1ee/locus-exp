@@ -1,0 +1,67 @@
+diff --git a/src/aiff.c b/src/aiff.c
+index d5071bd9..c40a1ee0 100644
+--- a/src/aiff.c
++++ b/src/aiff.c
+@@ -19,6 +19,9 @@
+ 
+ #include "sfconfig.h"
+ 
++// Locus: needed for _exit() used by pruning predicates
++#include <unistd.h>
++
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+@@ -240,6 +243,13 @@ aiff_open (SF_PRIVATE *psf)
+ 
+ 	subformat = SF_CODEC (psf->sf.format) ;
+ 
++	// Locus: dimension=control_flow (moved upstream) - the CHAN chunk / channel-map
++	// parsing path (and therefore the canary) is only reachable when opening an
++	// existing AIFF file for reading; pure SFM_WRITE opens never call
++	// aiff_read_header / aiff_read_chanmap.
++	if (! (psf->file.mode == SFM_READ || psf->file.mode == SFM_RDWR))
++		_exit (1) ;
++
+ 	if ((psf->container_data = calloc (1, sizeof (AIFF_PRIVATE))) == NULL)
+ 		return SFE_MALLOC_FAILED ;
+ 
+@@ -882,6 +892,13 @@ aiff_read_header (SF_PRIVATE *psf, COMM_CHUNK *comm_fmt)
+ 
+ 					psf_log_printf (psf, " %M : %d\n", marker, chunk_size) ;
+ 
++					// Locus: dimension=state (moved upstream) - psf->sf.channels must
++					// already hold a valid value (1 <= channels <= SF_MAX_CHANNELS),
++					// populated earlier by the COMM chunk parser, before the channel
++					// map comparison in aiff_read_chanmap can ever be meaningful.
++					if (psf->sf.channels < 1 || psf->sf.channels > SF_MAX_CHANNELS)
++						_exit (1) ;
++
+ 					if ((error = aiff_read_chanmap (psf, chunk_size)))
+ 						return error ;
+ 					break ;
+@@ -1760,11 +1777,24 @@ aiff_read_chanmap (SF_PRIVATE * psf, unsigned dword)
+ 	unsigned channel_bitmap, channel_decriptions, bytesread ;
+ 	int layout_tag ;
+ 
++	// Locus: dimension=size_length - caller (CHAN_MARKER handler) already
++	// requires chunk_size >= 12 before calling this function; a smaller
++	// dword can never lead to the canary path.
++	if (dword < 12)
++		_exit (1) ;
++
+ 	bytesread = psf_binheader_readf (psf, "444", &layout_tag, &channel_bitmap, &channel_decriptions) ;
+ 
+ 	if ((map_info = aiff_caf_of_channel_layout_tag (layout_tag)) == NULL)
+ 		return 0 ;
+ 
++	// Locus: dimension=format_validation - the canary is only reached when the
++	// resolved layout tag has an associated non-NULL channel_map table; tags
++	// mapping to a NULL channel_map (e.g. "use bitmap/descriptions" placeholders)
++	// never execute the vulnerable memcpy block.
++	if (map_info->channel_map == NULL)
++		_exit (1) ;
++
+ 	psf_log_printf (psf, "  Tag    : %x\n", layout_tag) ;
+ 	if (map_info)
+ 		psf_log_printf (psf, "  Layout : %s\n", map_info->name) ;
