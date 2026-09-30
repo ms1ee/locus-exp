@@ -1,6 +1,7 @@
 # fuzzing workdir: captainrc + campaign results
 workdir/
 output/
+.env
 
 # Locus is its own git repo (upstream cirrus-uchicago/Locus); our diff lives in locus-changes.patch
 locus/
