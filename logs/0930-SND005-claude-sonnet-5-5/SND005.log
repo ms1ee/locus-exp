@@ -1,0 +1,33 @@
+Found canary at /tmp/locus-SND005/repo/src/aiff.c:1782
+Condition: psf->sf.channels > (layout_tag & 0xffff)
+
+--- Iteration 1/5 ---
+  Validating predicate [state_channels]...
+  Predicate [state_channels] passed symbolic validation.
+  Agent wants to stop, but min_iterations=3 not reached (iteration 1). Continuing...
+
+--- Iteration 2/5 ---
+  Validating predicate [state_comm_seen]...
+  Predicate [state_comm_seen] passed symbolic validation.
+  Agent wants to stop, but min_iterations=3 not reached (iteration 2). Continuing...
+
+--- Iteration 3/5 ---
+  Validating predicate [size_length]...
+  Predicate [size_length] passed symbolic validation.
+
+Agent stopped after 3 iteration(s).
+
+--- Locus finished (agent's last report; predicates reverted above are no longer in the tree) ---
+LOCUS_PREDICATE: dimension=size_length file=src/aiff.c line=414 condition=!psf->is_pipe&&psf->filelength<34 action=inserted
+
+I've added one more predicate, a file-size check at the start of `aiff_read_header`. That is the earliest point where I can express a condition on this path. The build succeeds. I haven't seen the KLEE validation results.
+
+- **Why 34 bytes:** the canary needs a COMM chunk before a CHAN chunk. A COMM chunk takes an 8-byte header plus the 18 bytes `aiff_read_comm_chunk` always reads. The CHAN chunk header adds 8 more bytes. Anything shorter can't reach the canary.
+- **Pipe exclusion:** I skip the check for pipes, because `filelength` may not be reliable there.
+
+The other predicates are unchanged:
+
+- **Call site:** `channels < 2` and `!(found_chunk & HAVE_COMM)`, in the `CHAN_MARKER` case.
+- **Inside `aiff_read_chanmap`:** `map_info->channel_map == NULL` and `channels <= (layout_tag & 0xffff)`.
+
+I checked the read-only-mode dimension and added no predicate for it. `aiff_read_header` is only reached in read or read-write mode, which is already implied.

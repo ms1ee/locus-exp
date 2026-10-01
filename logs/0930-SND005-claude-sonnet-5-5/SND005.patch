@@ -1,0 +1,47 @@
+diff --git a/src/aiff.c b/src/aiff.c
+index d5071bd9..5be340fe 100644
+--- a/src/aiff.c
++++ b/src/aiff.c
+@@ -19,6 +19,7 @@
+ 
+ #include "sfconfig.h"
+ 
++#include <unistd.h> // Locus: for _exit
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+@@ -409,6 +410,9 @@ aiff_read_header (SF_PRIVATE *psf, COMM_CHUNK *comm_fmt)
+ 
+ 	if ((paiff = psf->container_data) == NULL)
+ 		return SFE_INTERNAL ;
++	// Locus: canary needs a COMM chunk (8 hdr + 18 bytes read) followed by a CHAN chunk header (8), so the file must be at least 34 bytes
++	if (! psf->is_pipe && psf->filelength < 34) _exit (1) ;
++
+ 
+ 	paiff->comm_offset = 0 ;
+ 	paiff->ssnd_offset = 0 ;
+@@ -879,6 +883,11 @@ aiff_read_header (SF_PRIVATE *psf, COMM_CHUNK *comm_fmt)
+ 						psf_binheader_readf (psf, "j", chunk_size) ;
+ 						break ;
+ 						}
++					// Locus: canary needs channels > (tag & 0xffff) >= 1 for a non-NULL channel_map, so channels >= 2
++					if (psf->sf.channels < 2) _exit (1) ;
++					// Locus: channels is only set by the COMM chunk, so COMM must precede CHAN
++					if (! (found_chunk & HAVE_COMM)) _exit (1) ;
++
+ 
+ 					psf_log_printf (psf, " %M : %d\n", marker, chunk_size) ;
+ 
+@@ -1764,6 +1773,12 @@ aiff_read_chanmap (SF_PRIVATE * psf, unsigned dword)
+ 
+ 	if ((map_info = aiff_caf_of_channel_layout_tag (layout_tag)) == NULL)
+ 		return 0 ;
++	// Locus: canary requires a layout with a non-NULL channel_map
++	if (map_info->channel_map == NULL) _exit (1) ;
++
++	// Locus: canary requires channels > (layout_tag & 0xffff)
++	if (psf->sf.channels <= (layout_tag & 0xffff)) _exit (1) ;
++
+ 
+ 	psf_log_printf (psf, "  Tag    : %x\n", layout_tag) ;
+ 	if (map_info)
